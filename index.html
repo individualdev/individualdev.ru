@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Приложения</title>
+    <meta name="description" content="Приложения для решения ваших задач от независимого разработчика.">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap');
+        * {
+            padding: 0;
+            margin: 0;
+            font-family: sans-serif;
+        }
+        .header {
+            position: fixed;
+            top: 0px;
+            display: flex;
+            justify-content: flex-end;
+            padding: 20px;
+            z-index: 1;
+            width: 100%;
+            height: auto;
+            background-color: #fff;
+        }
+        .header > .email {
+            width: 190px;
+        }
+        .main {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            width: 80%;
+            height: auto;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .main > .title {
+            margin-top: 240px;
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .main > .button {
+            text-decoration: none;
+            margin-top: 50px;
+            margin-bottom: 100px;
+            width: 250px;
+            background-color: #3898EC;
+            border-radius: 30px;
+            text-align: center;
+            font-size: 20px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            color: #fff;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .main > .button:hover {
+            opacity: 0.8;
+            cursor: pointer;
+        }
+        .main > .latest {
+            width: 450px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .main > .latest > .app {
+            display: flex;
+            background-color: #eee;
+            border-radius: 10px;
+            margin-bottom: 150px;
+            text-decoration: none;
+            color: #212121;
+        }
+        .main > .latest > .app > .icon {
+            width: 100px;
+            height: 100px;
+            margin: 20px;
+            background-image: url(./ic_launcher.png);
+            background-size: cover;
+        }
+        .main > .latest > .app > .content {
+            margin-top: 30px;
+        }
+        .main > .latest > .app > .content > .name {
+            font-size: 20px;
+            font-weight: 600;
+        }
+        .main > .latest > .app > .content > .text {
+            margin-top: 10px;
+        }
+        @media (max-width: 425px) {
+            .main > .latest {
+                width: 300px;
+            }
+            .main > .latest > .app {
+                flex-direction: column;
+                text-align: center;
+            }
+            .main > .latest > .app > .icon {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .main > .latest > .app > .content {
+                margin-top: 0px;
+                margin-bottom: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <header class="header">
+        <div class="name"></div>
+        <div class="email">info@individualdev.ru</div>
+    </header>
+
+    <main class="main">
+        <h1 class="title">
+            Приложения для решения ваших задач
+        </h1>
+        <a href="https://apps.rustore.ru/?devId=x0yako73qiSMFBpJ1Ce8etuCEg%252B8YFIM" class="button">Подробнее</a>
+        <div class="latest">
+            <a href="https://apps.rustore.ru/app/ru.individualdev.brailleapp" class="app">
+                <div class="icon"></div>
+                <div class="content">
+                    <div class="name">Переводчик Брайля</div>
+                    <div class="text">Перевод русского текста на шрифт Брайля</div>
+                </div>
+            </a>
+        </div>
+    </main>
+    
+</body>
+</html>
