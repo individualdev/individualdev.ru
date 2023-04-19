@@ -16,16 +16,19 @@
         .header {
             position: fixed;
             top: 0px;
-            display: flex;
-            justify-content: flex-end;
             padding: 20px;
             z-index: 1;
             width: 100%;
             height: auto;
             background-color: #fff;
         }
+        .header > .link {
+            float: left;
+            cursor: pointer;
+        }
         .header > .email {
             width: 190px;
+            float: right;
         }
         .main {
             display: flex;
@@ -90,7 +93,80 @@
         .main > .latest > .app > .content > .text {
             margin-top: 10px;
         }
-        @media (max-width: 425px) {
+        .wapper {
+            display: none;
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            background-color: #fff;
+            user-select: none;
+        }
+        .wapper > .close {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            background-color: red;
+            width: 30px;
+            height: 30px;
+            border-radius: 50px;
+        }
+        .wapper > .close:hover {
+            opacity: 0.8;
+            cursor: pointer;
+        }
+        .wapper > .tarifs {
+            position: relative;
+            width: 90%;
+            left: 5%;
+            height: 100%;
+        }
+        .wapper > .tarifs > .tarif-block > .title {
+            margin-top: 100px;
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 35px;
+        }
+        .wapper > .tarifs > .tarif-block > .info {
+            margin-top: 50px;
+            text-align: center;
+        }
+        .wapper > .tarifs > .tarif-block > .blocks {
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+        }
+        .wapper > .tarifs > .tarif-block > .blocks > .center {
+            margin-left: 2%;
+            margin-right: 2%;
+        }
+        .wapper > .tarifs > .tarif-block > .blocks > .bk {
+            background-color: #eee;
+            width: 30%;
+            height: 150px;
+            border-radius: 15px;
+        }
+        .wapper > .tarifs > .tarif-block > .blocks > .bk > .name {
+            padding: 20px;
+            font-size: 20px;
+        }
+        .wapper > .tarifs > .tarif-block > .blocks > .bk > .info {
+            padding: 0px 20px 0px 20px;
+            text-align: justify;
+            font-size: 14px;
+            height: 50px;
+        }
+        .wapper > .tarifs > .tarif-block > .blocks > .bk > .price {
+            padding: 20px;
+            margin: 10px;
+            background-color: #212121;
+            color: #fff;
+            border-radius: 10px;
+            text-align: center;
+        }
+        @media (max-width: 768px) {
             .main > .latest {
                 width: 300px;
             }
@@ -106,13 +182,28 @@
                 margin-top: 0px;
                 margin-bottom: 30px;
             }
+            .wapper {
+                overflow-y: scroll;
+            }
+            .wapper > .tarifs > .tarif-block > .blocks {
+                flex-direction: column;
+            }
+            .wapper > .tarifs > .tarif-block > .blocks > .bk {
+                float: none;
+                width: 100%;
+                margin-bottom: 40px;
+            }
+            .wapper > .tarifs > .tarif-block > .blocks > .center {
+                margin-left: 0px;
+                margin-right: 0px;
+            }
         }
     </style>
 </head>
 <body>
     
     <header class="header">
-        <div class="name"></div>
+        <div class="link" onclick="tarif()">Услуги</div>
         <div class="email">info@individualdev.ru</div>
     </header>
 
@@ -120,7 +211,7 @@
         <h1 class="title">
             Приложения для решения ваших задач
         </h1>
-        <a href="https://apps.rustore.ru/?devId=x0yako73qiSMFBpJ1Ce8etuCEg%252B8YFIM" class="button">Подробнее</a>
+        <a href="https://apps.rustore.ru/developer/YKmcbfumSvthPtCdc5yCtMAjKzSNOt7M" class="button">Подробнее</a>
         <div class="latest">
             <a href="https://apps.rustore.ru/app/ru.individualdev.brailleapp" class="app">
                 <div class="icon"></div>
@@ -131,6 +222,47 @@
             </a>
         </div>
     </main>
+
+    <div class="wapper" id="wapper">
+        <div class="close" onclick="closed()" title="Закрыть"></div>
+        <div class="tarifs">
+            <div class="tarif-block">
+                <div class="title">Разработка приложений под ключ</div>
+                <div class="info">
+                    <p>Разработаем программное обеспечение под ваши требования.</p>
+                </div>
+                <div class="blocks">
+                    <div class="bk">
+                        <div class="name">Мобильные приложения</div>
+                        <div class="info">Разрабатываем мобильные приложения для Android. Помогаем с публикацией в магазинах.</div>
+                        <div class="price">от 25.000 рублей</div>
+                    </div>
+                    <div class="bk center">
+                        <div class="name">Веб-приложения</div>
+                        <div class="info">Разработаем прогрессивные web-приложения. С использованием современных технологий и стандартов.</div>
+                        <div class="price">от 20.000 рублей</div>
+                    </div>
+                    <div class="bk">
+                        <div class="name">Программирование</div>
+                        <div class="info">Разработаем программное обеспечение на Python, Java, Node.js, C# и PHP.</div>
+                        <div class="price">от 1.500 рублей</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        function tarif() {
+            document.getElementById("wapper").style.display = "block";
+        }
+
+        function closed() {
+            document.getElementById("wapper").style.display = "none";
+        }
+
+    </script>
     
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" >
